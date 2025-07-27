@@ -1,36 +1,104 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+#  Fanavran Pars Task
 
-## Getting Started
+<div dir="rtl">
 
-First, run the development server:
+## درباره پروژه
 
+پروژه task  محول شده از سمت شرکت فناوران پارس میباشد،دراین پروژه اطلاعات نام،نام خانوادگی و شماره تماس توسط فرم(controlled using react-hook-form)دریافت شده وقبل از ثبت فرم توسط zod اعتبار سنجی صورت میگیرد،محدودیت های اعما شده برای نام و نام خانوادگی حداقل طول 2 کاراکتر،حداکثر طول 50 کاراکتر وعدم وجود کاراکتر های غیر استاندارد در رشته وارد شده توسط کاربر می‌باشد،برای شماره تماس فرمت های زیر قابل قبول میباشد:
+
+- 09381298458
+- 9381298458
+- 00989381298458
+- 989381298458+
+
+پس از بررسی اعتبار داده ها در سمت کاربر،اطلاعات از طریق server action  در سمت سرور نیز مورد صحت سنجی قرار می‌گیرند(same zod scehma) و در صورت تایید random user api فراخوانی میشود و اطلاعات موردنظر با اطلاعات وارد شده توسط کاربر ادغام میشود و در کوکی ذخیر میشود.پس از ذخیره اطلاعات در کوکی کاربر به صفحه داشبورد هدایت میشود.  
+لازم به ذکر است دسترسی به آدرس های login  و dashboard  از طریق middleware  مدیریت میشود به این صورت که در صورت داشتن سشن فعال(از طریق بررسی وجود کوکی در درخواست ها) کاربر مجاز به ورود به داشبورد میباشد در غیر این صورت به صفحه ورود هدایت میشود(در صورت تلاش برای دستری به صفحه داشبورد) و در صورتی که کاربر دارای سشن فعال باشد در صورت ورود به صفحه login به صفحه داشبورد هدایت میشود.
+
+## تکنولوژی‌های استفاده شده
+
+### فریمورک اصلی
+- **Next.js 15.3.5** 
+- **React 19.1.0** 
+
+### مدیریت فرم‌ها و اعتبارسنجی
+- **React Hook Form 7.61.1** - کتابخانه قدرتمند برای مدیریت فرم‌ها در React
+- **Hookform Resolvers 5.2.0** 
+- **Zod 4.0.10** - کتابخانه TypeScript-first برای اعتبارسنجی اسکیما
+
+## پیش‌نیازها
+
+قبل از اجرای پروژه، مطمئن شوید که موارد زیر روی سیستم شما نصب شده است:
+
+- Node.js (نسخه 18 یا بالاتر)
+- npm یا yarn یا pnpm
+
+## نحوه اجرای پروژه
+
+### 1. کلون کردن پروژه
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/amjadnikzad/fanavaran-Pars.git
+cd fanavaran-pars
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. نصب وابستگی‌ها
+```bash
+# با npm
+npm install
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# یا با yarn
+yarn install
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+# یا با pnpm
+pnpm install
+```
 
-## Learn More
+### 3. اجرای پروژه در حالت توسعه
+```bash
+# با npm
+npm run dev
 
-To learn more about Next.js, take a look at the following resources:
+# یا با yarn
+yarn dev
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# یا با pnpm
+pnpm dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 4. دسترسی به پروژه
+پس از اجرای دستور بالا، پروژه در آدرس زیر در دسترس خواهد بود:
+```
+http://localhost:3000
+```
 
-## Deploy on Vercel
+## اسکریپت‌های موجود
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- `npm run dev` - اجرای پروژه در حالت توسعه
+- `npm run build` - ساخت نسخه پروداکشن
+- `npm run start` - اجرای نسخه پروداکشن
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## ویژگی‌های پروژه
+
+### مدیریت فرم‌ها
+پروژه از React Hook Form برای مدیریت فرم‌ها استفاده می‌کند که مزایای زیر را دارد:
+- عملکرد بهینه با کمترین re-render
+- اعتبارسنجی آسان و قدرتمند
+- پشتیبانی از TypeScript
+
+### اعتبارسنجی
+با استفاده از Zod، اعتبارسنجی قوی و type-safe برای داده‌ها فراهم شده است:
+- تعریف اسکیماهای پیچیده
+- پیام‌های خطای سفارشی
+- پشتیبانی کامل از TypeScript
+
+## ساختار پروژه
+
+```
+├── app/          # صفحات Next.js
+├── components/     # کامپوننت‌های قابل استفاده مجدد
+├── lib/           # توابع کمکی و تنظیمات
+└── public/        # فایل‌های استاتیک
+```
+
+
+
+</div>
