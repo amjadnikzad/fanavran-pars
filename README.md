@@ -91,14 +91,17 @@ http://localhost:3000
 - پشتیبانی کامل از TypeScript
 
 ## ساختار پروژه
-
 ```
-├── app/          # صفحات Next.js
-├── components/     # کامپوننت‌های قابل استفاده مجدد
-├── lib/           # توابع کمکی 
-└── public/        # فایل‌های استاتیک
+├── app/                    # صفحات Next.js
+│   ├── page.tsx           # صفحه اصلی (home route)
+│   ├── dashboard/
+│   │   └── page.tsx       # صفحه داشبورد (/dashboard)
+│   └── login/
+│       └── page.tsx       # صفحه ورود (/login)
+├── components/            # کامپوننت‌های قابل استفاده مجدد
+├── lib/                   # توابع کمکی
+└── public/                # فایل‌های استاتیک
 ```
-
 
 
 </div>
