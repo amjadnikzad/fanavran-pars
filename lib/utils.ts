@@ -1,5 +1,5 @@
 import { cookies } from 'next/headers'
-import { userSchema, type UserData } from './validations/auth'
+import { userSchema, type UserData } from './schemas/auth'
 
 export async function getCurrentUser(): Promise<UserData | null> {
   try {

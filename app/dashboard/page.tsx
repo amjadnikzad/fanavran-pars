@@ -1,7 +1,7 @@
 import { getCurrentUser, getUserDisplayName, formatUserLocation } from '@/lib/utils'
 import { redirect } from 'next/navigation'
 import { logoutAction } from './actions'
-import { UserData } from '@/lib/validations/auth';
+import { UserData } from '@/lib/schemas/auth';
 
 export default async function DashboardPage() {
   const user = await getCurrentUser() as UserData;

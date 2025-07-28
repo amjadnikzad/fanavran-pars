@@ -1,7 +1,7 @@
 "use server";
 
 import { cookies } from "next/headers";
-import { loginSchema, type UserData } from "@/lib/validations/auth";
+import { loginSchema, type UserData } from "@/lib/schemas/auth";
 import { fetchRandomUser } from "@/lib/api";
 
 export type LoginActionState = {

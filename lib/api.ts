@@ -1,4 +1,4 @@
-import { ApiUserData, apiUserSchema } from "./validations/auth";
+import { ApiUserData, apiUserSchema } from "./schemas/auth";
 
 export async function fetchRandomUser(): Promise<ApiUserData> {
   try {

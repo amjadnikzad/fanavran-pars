@@ -4,7 +4,7 @@ import { startTransition, useActionState, useEffect, useRef, useState } from 're
 import { useRouter } from 'next/navigation'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { loginSchema, type LoginFormData } from '@/lib/validations/auth'
+import { loginSchema, type LoginFormData } from '@/lib/schemas/auth'
 import { loginAction } from '@/app/login/actions'
 import TransitionModal from './TransitionModal'
 
